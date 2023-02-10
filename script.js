@@ -16,8 +16,8 @@ function createGrid(selectedSize) {
 		containerDiv.appendChild(itemDiv);
 	}
 
-	const body = document.querySelector("body");
-	body.appendChild(containerDiv);
+	const main = document.querySelector(".main");
+	main.appendChild(containerDiv);
 }
 
 function changeBackground(e) {
