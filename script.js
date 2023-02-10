@@ -27,4 +27,8 @@ function changeBackground(e) {
 const resizeBtn = document.querySelector(".resize");
 resizeBtn.addEventListener("click", promptResize);
 
-function promptResize() {}
+const resizePrompt = document.querySelector(".resize-prompt");
+
+function promptResize() {
+	resizePrompt.classList.remove("hidden");
+}
