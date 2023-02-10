@@ -2,3 +2,23 @@
 	margin: 0;
 	padding: 0;
 }
+
+body {
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.container {
+	width: 500px;
+	height: 500px;
+	display: grid;
+	grid-template-columns: repeat(16, 1fr);
+	justify-items: stretch;
+}
+
+.item {
+	background-color: aqua;
+	border: solid red 1px;
+}
