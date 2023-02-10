@@ -25,10 +25,10 @@ function changeBackground(e) {
 }
 
 const resizeBtn = document.querySelector(".resize");
-resizeBtn.addEventListener("click", promptResize);
+resizeBtn.addEventListener("click", showResizeDialog);
 
-const resizePrompt = document.querySelector(".resize-prompt");
+const resizeDialog = document.querySelector(".resize-dialog");
 
-function promptResize() {
-	resizePrompt.classList.remove("hidden");
+function showResizeDialog() {
+	resizeDialog.showModal();
 }

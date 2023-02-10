@@ -1,10 +1,19 @@
-* {
+* :not(.resize-dialog) {
 	margin: 0;
 	padding: 0;
 }
 
 a {
 	color: lightblue;
+}
+
+dialog {
+	border: none;
+	padding: 0;
+}
+
+input {
+	font-size: 18px;
 }
 
 body {
@@ -44,16 +53,15 @@ footer {
 
 .resize-prompt {
 	background-color: rgba(40, 40, 40, 0.75);
-	position: absolute;
+	color: white;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	text-align: center;
-	width: 960px;
-	height: 960px;
+	padding: 25px;
 }
 
-.resize-input > * {
+.resize-form > * {
 	margin: 10px 0;
 }
 
