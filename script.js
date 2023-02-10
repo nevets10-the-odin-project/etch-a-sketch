@@ -21,5 +21,5 @@ function createGrid(selectedSize) {
 }
 
 function changeBackground(e) {
-	console.log(e.target);
+	e.target.style.background = "black";
 }
