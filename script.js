@@ -7,6 +7,7 @@ function createGrid(selectedSize) {
 
 	const containerDiv = document.createElement("div");
 	containerDiv.classList.add("container");
+	containerDiv.addEventListener("mouseover", changeBackground);
 
 	for (let i = 1; i <= gridSize; i++) {
 		const itemDiv = document.createElement("div");
@@ -17,4 +18,8 @@ function createGrid(selectedSize) {
 
 	const body = document.querySelector("body");
 	body.appendChild(containerDiv);
+}
+
+function changeBackground(e) {
+	console.log(e.target);
 }
