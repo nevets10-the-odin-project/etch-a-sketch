@@ -23,3 +23,8 @@ function createGrid(selectedSize) {
 function changeBackground(e) {
 	e.target.style.background = "black";
 }
+
+const resizeBtn = document.querySelector(".resize");
+resizeBtn.addEventListener("click", promptResize);
+
+function promptResize() {}

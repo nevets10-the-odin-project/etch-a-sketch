@@ -36,6 +36,27 @@ footer {
 	padding: 5px 10px;
 }
 
+.main {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.resize-prompt {
+	background-color: rgba(40, 40, 40, 0.75);
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	width: 960px;
+	height: 960px;
+}
+
+.resize-input > * {
+	margin: 10px 0;
+}
+
 .container {
 	width: 960px;
 	height: 960px;
@@ -46,4 +67,8 @@ footer {
 
 .item {
 	background-color: white;
+}
+
+.hidden {
+	display: none;
 }
