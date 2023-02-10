@@ -12,8 +12,8 @@ body {
 }
 
 .container {
-	width: 1280px;
-	height: 720px;
+	width: 960px;
+	height: 960px;
 	display: grid;
 	grid-template-columns: repeat(16, 1fr);
 	justify-items: stretch;
