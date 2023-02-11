@@ -4,6 +4,7 @@ createGrid(16);
 
 function createGrid(selectedSize) {
 	const gridSize = selectedSize ** 2;
+	displayGridSize(selectedSize);
 
 	const main = document.querySelector(".main");
 	const currentContainer = document.querySelector(".container");
@@ -24,6 +25,11 @@ function createGrid(selectedSize) {
 	} else {
 		main.appendChild(newContainer);
 	}
+}
+
+function displayGridSize(gridSize) {
+	const p = document.querySelector(".grid-size");
+	p.textContent = `Current size: ${gridSize}x${gridSize}`;
 }
 
 function changeColor(e) {
