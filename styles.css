@@ -1,10 +1,20 @@
-* :not(.resize-dialog) {
+* :not(.resize-dialog, header, button, footer) {
 	margin: 0;
 	padding: 0;
 }
 
 a {
 	color: lightblue;
+}
+
+button {
+	font-size: inherit;
+	font-family: inherit;
+	color: inherit;
+	border: none;
+	cursor: pointer;
+	background-color: inherit;
+	border-radius: 5px;
 }
 
 dialog {
@@ -33,6 +43,16 @@ header {
 	gap: 20px;
 	align-items: baseline;
 	padding: 5px 10px;
+}
+
+header button {
+	background-color: rgb(60, 60, 60);
+	padding: 5px;
+	align-self: center;
+}
+
+header button:hover {
+	background-color: rgb(20, 20, 20);
 }
 
 footer {
