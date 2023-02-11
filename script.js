@@ -9,7 +9,7 @@ function createGrid(selectedSize) {
 	const currentContainer = document.querySelector(".container");
 	const newContainer = document.createElement("div");
 	newContainer.classList.add("container");
-	newContainer.addEventListener("mouseover", changeBackground);
+	newContainer.addEventListener("mouseover", changeColor);
 
 	for (let i = 1; i <= gridSize; i++) {
 		const itemDiv = document.createElement("div");
@@ -26,17 +26,18 @@ function createGrid(selectedSize) {
 	}
 }
 
-function changeBackground(e) {
-	if (e.target.style.background) {
-		const hue = e.target.getAttribute("data-hue");
-		const newLightness = +e.target.getAttribute("data-lightness") - 5;
-		e.target.style.background = `hsl(${hue}, 100%, ${newLightness}%)`;
-		e.target.setAttribute("data-lightness", newLightness);
+function changeColor(e) {
+	const itemDiv = e.target;
+	if (itemDiv.style.background) {
+		const hue = itemDiv.getAttribute("data-hue");
+		const newLightness = +itemDiv.getAttribute("data-lightness") - 5;
+		itemDiv.style.background = `hsl(${hue}, 100%, ${newLightness}%)`;
+		itemDiv.setAttribute("data-lightness", newLightness);
 	} else {
 		const newHue = getRandomHue();
-		e.target.style.background = `hsl(${newHue}, 100%, 50%)`;
-		e.target.setAttribute("data-hue", newHue);
-		e.target.setAttribute("data-lightness", 50);
+		itemDiv.style.background = `hsl(${newHue}, 100%, 50%)`;
+		itemDiv.setAttribute("data-hue", newHue);
+		itemDiv.setAttribute("data-lightness", 50);
 	}
 }
 
