@@ -27,6 +27,7 @@ function createGrid(selectedSize) {
 }
 
 function changeBackground(e) {
+	if (e.target.style.background) return;
 	e.target.style.background = `rgb(${getRandomRGB()}, ${getRandomRGB()}, ${getRandomRGB()})`;
 }
 
