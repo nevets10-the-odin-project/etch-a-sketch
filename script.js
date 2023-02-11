@@ -39,15 +39,17 @@ function darken(currentColor) {
 		.split(",")
 		.map((value) => +value);
 
-	const lightness = getLightness(RGBArray);
-	console.log(lightness);
-}
-
-function getLightness(RGBArray) {
 	const max = Math.max(...RGBArray);
 	const min = Math.min(...RGBArray);
+	const lightness = 0.5 * (max / 255) + 0.5 * (min / 255);
+	const hue = getHueFromRGB(max, min, RGBArray);
+}
 
-	return (0.5 * (max / 255) + 0.5 * (min / 255)) * 100;
+function getHueFromRGB(max, min, RGBArray) {
+	const isRedMax = RGBArray.indexOf(max) === 0;
+	const isGreenMax = RGBArray.indexOf(max) === 1;
+
+	console.log(isGreenMax);
 }
 
 function getRandomHue() {
