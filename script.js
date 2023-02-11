@@ -42,14 +42,26 @@ function darken(currentColor) {
 	const max = Math.max(...RGBArray);
 	const min = Math.min(...RGBArray);
 	const lightness = 0.5 * (max / 255) + 0.5 * (min / 255);
-	const hue = getHueFromRGB(max, min, RGBArray);
+	const hue = getHueFromRGB(RGBArray, max, min);
+	console.log(hue);
 }
 
-function getHueFromRGB(max, min, RGBArray) {
-	const isRedMax = RGBArray.indexOf(max) === 0;
-	const isGreenMax = RGBArray.indexOf(max) === 1;
+function getHueFromRGB(RGBArray, max, min) {
+	const red = RGBArray[0];
+	const green = RGBArray[1];
+	const blue = RGBArray[2];
+	const chroma = max - min;
+	let hue = 0;
 
-	console.log(isGreenMax);
+	if (red === max) {
+		hue = (((green - blue) / chroma) % 6) * 60;
+	} else if (green === max) {
+		hue = ((blue - red) / chroma + 2) * 60;
+	} else {
+		hue = ((red - green) / chroma + 4) * 60;
+	}
+
+	return hue;
 }
 
 function getRandomHue() {
