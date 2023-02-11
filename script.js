@@ -27,7 +27,11 @@ function createGrid(selectedSize) {
 }
 
 function changeBackground(e) {
-	e.target.style.background = "black";
+	e.target.style.background = `rgb(${getRandomRGB()}, ${getRandomRGB()}, ${getRandomRGB()})`;
+}
+
+function getRandomRGB() {
+	return Math.floor(Math.random() * 255);
 }
 
 const resizeBtn = document.querySelector(".resize");
