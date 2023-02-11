@@ -27,12 +27,31 @@ function createGrid(selectedSize) {
 }
 
 function changeBackground(e) {
-	if (e.target.style.background) return;
-	e.target.style.background = `rgb(${getRandomRGB()}, ${getRandomRGB()}, ${getRandomRGB()})`;
+	if (e.target.style.background)
+		e.target.style.background = darken(e.target.style.background);
+	e.target.style.background = `hsl(${getRandomHue()}, 100%, 50%)`;
 }
 
-function getRandomRGB() {
-	return Math.floor(Math.random() * 255);
+function darken(currentColor) {
+	const RGBArray = currentColor
+		.replaceAll(" ", "")
+		.slice(4, -1)
+		.split(",")
+		.map((value) => +value);
+
+	const lightness = getLightness(RGBArray);
+	console.log(lightness);
+}
+
+function getLightness(RGBArray) {
+	const max = Math.max(...RGBArray);
+	const min = Math.min(...RGBArray);
+
+	return (0.5 * (max / 255) + 0.5 * (min / 255)) * 100;
+}
+
+function getRandomHue() {
+	return Math.floor(Math.random() * 360);
 }
 
 const resizeBtn = document.querySelector(".resize");
