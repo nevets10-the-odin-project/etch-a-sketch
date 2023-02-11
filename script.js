@@ -27,41 +27,17 @@ function createGrid(selectedSize) {
 }
 
 function changeBackground(e) {
-	if (e.target.style.background)
-		e.target.style.background = darken(e.target.style.background);
-	e.target.style.background = `hsl(${getRandomHue()}, 100%, 50%)`;
-}
-
-function darken(currentColor) {
-	const RGBArray = currentColor
-		.replaceAll(" ", "")
-		.slice(4, -1)
-		.split(",")
-		.map((value) => +value);
-
-	const max = Math.max(...RGBArray);
-	const min = Math.min(...RGBArray);
-	const lightness = 0.5 * (max / 255) + 0.5 * (min / 255);
-	const hue = getHueFromRGB(RGBArray, max, min);
-	console.log(hue);
-}
-
-function getHueFromRGB(RGBArray, max, min) {
-	const red = RGBArray[0];
-	const green = RGBArray[1];
-	const blue = RGBArray[2];
-	const chroma = max - min;
-	let hue = 0;
-
-	if (red === max) {
-		hue = (((green - blue) / chroma) % 6) * 60;
-	} else if (green === max) {
-		hue = ((blue - red) / chroma + 2) * 60;
+	if (e.target.style.background) {
+		const hue = e.target.getAttribute("data-hue");
+		const newLightness = +e.target.getAttribute("data-lightness") - 5;
+		e.target.style.background = `hsl(${hue}, 100%, ${newLightness}%)`;
+		e.target.setAttribute("data-lightness", newLightness);
 	} else {
-		hue = ((red - green) / chroma + 4) * 60;
+		const newHue = getRandomHue();
+		e.target.style.background = `hsl(${newHue}, 100%, 50%)`;
+		e.target.setAttribute("data-hue", newHue);
+		e.target.setAttribute("data-lightness", 50);
 	}
-
-	return hue;
 }
 
 function getRandomHue() {
